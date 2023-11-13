@@ -5,4 +5,4 @@ build:
   requirementsPath: requirements.txt
 run:
   command: gunicorn Blog.wsgi --log-file -
-  containerPort: 8000
+  containerPort: 80
