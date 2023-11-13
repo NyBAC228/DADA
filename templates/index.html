@@ -1,0 +1,21 @@
+{% block content %}
+<p>BLOG</p>
+    {% if user.is_authenticated %}
+        Hello, {{ user.username }}
+        <a href="{% url 'users:logout' %}">log out</a>
+    {% else %}
+        <p><a href="{% url 'users:register' %}">Register</a> - <a href="{% url 'users:login' %}">log in</a></p>
+    {% endif %}
+<ul>
+    {% for post in posts %}
+        <li>
+            <p><a href="{% url 'blogs:edit_post' post.id %}">{{ post }}</a> - ({{ post.date_added|date:'M d, Y H:i' }})</p>
+            <p>{{ post.text|linebreaks }}</p>
+        </li>
+    {% empty %}
+        <li>No posts have been added yet</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'blogs:new_post' %}">Add a new post:</a>
+{% endblock content %}
