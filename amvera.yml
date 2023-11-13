@@ -6,5 +6,5 @@ meta:
 build:
   requirementsPath: requirements.txt
 run:
-  command: python  manage.py runserver
+  command: gunicorn Blog.wsgi --log-file -
   containerPort: 8000
