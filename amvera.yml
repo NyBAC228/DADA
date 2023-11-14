@@ -6,6 +6,6 @@ meta:
 build:
   requirementsPath: requirements.txt
 run:
-  scriptName: wsgi.py
+  command: python manage.py runserver
   persistenceMount: /data
-  containerPort: 7985
+  containerPort: 8000
